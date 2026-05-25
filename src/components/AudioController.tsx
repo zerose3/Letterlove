@@ -3,28 +3,17 @@ import { Howl } from "howler";
 import { motion } from "framer-motion";
 
 export default function AudioController() {
-  const [isPlaying, setIsPlaying] =
-    useState(false);
+  const [isPlaying, setIsPlaying] = useState(false);
+  const [isMuted, setIsMuted] = useState(false);
+  const [volume, setVolume] = useState(0.4);
 
-  const [isMuted, setIsMuted] =
-    useState(false);
-
-  const [volume, setVolume] =
-    useState(0.4);
-
-  const bgMusic =
-    useRef<Howl | null>(null);
+  const bgMusic = useRef<Howl | null>(null);
 
   useEffect(() => {
     bgMusic.current = new Howl({
-      src: [
-        "/audio/komang.mp3"
-      ],
-
+      src: ["/audio/komang.mp3"],
       loop: true,
-
       volume: volume,
-
       html5: true
     });
 
@@ -79,62 +68,51 @@ export default function AudioController() {
 
   return (
     <motion.div
-      initial={{
-        opacity: 0,
-        y: 20
-      }}
-      animate={{
-        opacity: 1,
-        y: 0
-      }}
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
       className="
-      fixed
-      bottom-6
-      right-6
-      z-[9999]
+        fixed
+        md:bottom-6 md:right-6
+        top-4 right-4
+        z-[9999]
       "
     >
       <div
         className="
-        backdrop-blur-xl
-        bg-black/30
-        border
-        border-white/10
-        rounded-2xl
-        p-4
-        shadow-2xl
-        w-[260px]
+          backdrop-blur-xl
+          bg-black/30
+          border
+          border-white/10
+          rounded-2xl
+          p-3 md:p-4
+          shadow-2xl
+          w-[220px] md:w-[260px]
         "
       >
         <h3
           className="
-          text-white
-          text-sm
-          mb-3
-          font-semibold
+            text-white
+            text-xs md:text-sm
+            mb-2 md:mb-3
+            font-semibold
           "
         >
           KOMANG - RAIM LAODE
         </h3>
 
-        <div
-          className="
-          flex
-          gap-2
-          mb-3
-          "
-        >
+        <div className="flex gap-2 mb-2 md:mb-3">
           {!isPlaying ? (
             <button
               onClick={handlePlay}
               className="
-              flex-1
-              bg-rose-500
-              hover:bg-rose-600
-              text-white
-              py-2
-              rounded-lg
-              transition
+                flex-1
+                bg-rose-500
+                hover:bg-rose-600
+                text-white
+                py-1.5 md:py-2
+                rounded-lg
+                transition
+                text-sm
               "
             >
               ▶ Play
@@ -143,13 +121,14 @@ export default function AudioController() {
             <button
               onClick={handlePause}
               className="
-              flex-1
-              bg-yellow-500
-              hover:bg-yellow-600
-              text-white
-              py-2
-              rounded-lg
-              transition
+                flex-1
+                bg-yellow-500
+                hover:bg-yellow-600
+                text-white
+                py-1.5 md:py-2
+                rounded-lg
+                transition
+                text-sm
               "
             >
               ⏸ Pause
@@ -159,12 +138,12 @@ export default function AudioController() {
           <button
             onClick={toggleMute}
             className="
-            px-4
-            bg-slate-700
-            hover:bg-slate-600
-            rounded-lg
-            text-white
-            transition
+              px-3 md:px-4
+              bg-slate-700
+              hover:bg-slate-600
+              rounded-lg
+              text-white
+              transition
             "
           >
             {isMuted ? "🔇" : "🔊"}
@@ -174,10 +153,10 @@ export default function AudioController() {
         <div>
           <label
             className="
-            text-xs
-            text-gray-300
-            block
-            mb-2
+              text-[10px] md:text-xs
+              text-gray-300
+              block
+              mb-1 md:mb-2
             "
           >
             Volume
@@ -190,24 +169,17 @@ export default function AudioController() {
             step="0.01"
             value={volume}
             onChange={(e) =>
-              setVolume(
-                Number(
-                  e.target.value
-                )
-              )
+              setVolume(Number(e.target.value))
             }
-            className="
-            w-full
-            cursor-pointer
-            "
+            className="w-full cursor-pointer"
           />
         </div>
 
         <p
           className="
-          text-[11px]
-          text-gray-400
-          mt-3
+            text-[10px] md:text-[11px]
+            text-gray-400
+            mt-2 md:mt-3
           "
         >
           Musik untuk menemani surat ini
