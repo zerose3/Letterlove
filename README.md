@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 
 # Create a README file with instructions
 
@@ -130,3 +131,7 @@ tree(base_dir)
 print("\n" + "="*60)
 print("TOTAL FILES:", sum(1 for _, _, files in os.walk(base_dir) for f in files))
 print("="*60)
+=======
+# Letterlove
+sebuah letterlove emaa
+>>>>>>> 60323284667cf0956df5c66b12103baf26dfa689

@@ -18,7 +18,7 @@ export default function AudioController() {
   useEffect(() => {
     bgMusic.current = new Howl({
       src: [
-        "/audio/KOMANG - RAIM LAODE LYRIC OFFICIAL.mp3"
+        "/audio/komang.mp3"
       ],
 
       loop: true,
