@@ -1,0 +1,612 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Great+Vibes&family=Special+Elite&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* =========================
+   ROOT
+========================= */
+
+:root {
+  --bg-dark: #0F172A;
+  --paper: #F8F4E9;
+  --gold: #D4AF37;
+  --rose: #C0392B;
+  --white: #FFFFFF;
+}
+
+/* =========================
+   GLOBAL
+========================= */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background: var(--bg-dark);
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Cormorant Garamond',
+    serif;
+
+  background:
+    radial-gradient(
+      circle at top,
+      rgba(255,255,255,0.05),
+      transparent 30%
+    ),
+    linear-gradient(
+      to bottom,
+      #020617,
+      #0F172A
+    );
+
+  color: white;
+
+  overflow: hidden;
+
+  -webkit-font-smoothing:
+    antialiased;
+
+  text-rendering:
+    optimizeLegibility;
+}
+
+/* =========================
+   TYPOGRAPHY
+========================= */
+
+.font-title {
+  font-family:
+    'Cormorant Garamond',
+    serif;
+}
+
+.font-letter {
+  font-family:
+    'Special Elite',
+    monospace;
+}
+
+.font-signature {
+  font-family:
+    'Great Vibes',
+    cursive;
+}
+
+/* =========================
+   PAPER EFFECT
+========================= */
+
+.paper-texture {
+  position: relative;
+  overflow: hidden;
+}
+
+.paper-texture::before {
+  content: "";
+
+  position: absolute;
+  inset: 0;
+
+  background-image:
+    radial-gradient(
+      rgba(0,0,0,0.06) 1px,
+      transparent 1px
+    );
+
+  background-size:
+    10px 10px;
+
+  opacity: 0.25;
+
+  pointer-events: none;
+}
+
+.paper-texture::after {
+  content: "";
+
+  position: absolute;
+  inset: 0;
+
+  background:
+    linear-gradient(
+      to bottom,
+      rgba(255,255,255,0.15),
+      transparent
+    );
+
+  pointer-events: none;
+}
+
+/* =========================
+   CINEMATIC GLOW
+========================= */
+
+.glow-soft {
+  box-shadow:
+    0 0 40px rgba(255,255,255,0.08),
+    0 0 80px rgba(255,192,203,0.08);
+}
+
+.glow-gold {
+  box-shadow:
+    0 0 20px rgba(212,175,55,0.5),
+    0 0 60px rgba(212,175,55,0.2);
+}
+
+.glow-rose {
+  box-shadow:
+    0 0 30px rgba(192,57,43,0.45),
+    0 0 80px rgba(192,57,43,0.15);
+}
+
+/* =========================
+   SHADOWS
+========================= */
+
+.shadow-paper {
+  box-shadow:
+    0 15px 40px rgba(0,0,0,0.45),
+    0 5px 15px rgba(0,0,0,0.2);
+}
+
+.shadow-romantic {
+  box-shadow:
+    0 10px 30px rgba(255,192,203,0.15),
+    0 0 80px rgba(255,255,255,0.05);
+}
+
+/* =========================
+   FLOATING
+========================= */
+
+@keyframes floating {
+  0% {
+    transform:
+      translateY(0px);
+  }
+
+  50% {
+    transform:
+      translateY(-12px);
+  }
+
+  100% {
+    transform:
+      translateY(0px);
+  }
+}
+
+.float-soft {
+  animation:
+    floating 5s ease-in-out infinite;
+}
+
+/* =========================
+   BLINK CURSOR
+========================= */
+
+@keyframes blink {
+  0% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+.cursor-blink {
+  animation:
+    blink 1s infinite;
+}
+
+/* =========================
+   PETAL FALL
+========================= */
+
+@keyframes petalFall {
+  0% {
+    transform:
+      translateY(-100px)
+      rotate(0deg);
+  }
+
+  100% {
+    transform:
+      translateY(110vh)
+      rotate(360deg);
+  }
+}
+
+.petal-fall {
+  animation:
+    petalFall linear infinite;
+}
+
+/* =========================
+   SCROLLBAR
+========================= */
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background:
+    rgba(255,255,255,0.05);
+}
+
+::-webkit-scrollbar-thumb {
+  background:
+    rgba(255,255,255,0.2);
+
+  border-radius: 999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background:
+    rgba(255,255,255,0.35);
+}
+
+/* =========================
+   TYPEWRITER
+========================= */
+
+.Typewriter {
+  line-height: 2.2rem;
+}
+
+.Typewriter__cursor {
+  color: #111827;
+  animation:
+    blink 1s infinite;
+}
+
+/* =========================
+   BUTTON
+========================= */
+
+.btn-romantic {
+  padding:
+    1rem 2rem;
+
+  border-radius:
+    999px;
+
+  backdrop-filter:
+    blur(12px);
+
+  transition:
+    all 0.4s ease;
+}
+
+.btn-romantic:hover {
+  transform:
+    translateY(-4px)
+    scale(1.03);
+}
+
+/* =========================
+   FLOWER DEPTH
+========================= */
+
+.flower-blur {
+  filter:
+    blur(4px);
+}
+
+.flower-depth {
+  transform:
+    translateZ(0);
+}
+
+/* =========================
+   CINEMATIC LIGHT
+========================= */
+
+.cinematic-light {
+  position: absolute;
+  inset: 0;
+
+  background:
+    radial-gradient(
+      circle at center,
+      rgba(255,255,255,0.08),
+      transparent 60%
+    );
+
+  pointer-events: none;
+}
+
+/* =========================
+   ROMANTIC OVERLAY
+========================= */
+
+.romantic-overlay {
+  position: absolute;
+  inset: 0;
+
+  background:
+    linear-gradient(
+      to bottom,
+      rgba(255,255,255,0.02),
+      rgba(255,192,203,0.04)
+    );
+
+  pointer-events: none;
+}
+
+/* =========================
+   FADE ANIMATION
+========================= */
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+
+    transform:
+      translateY(40px);
+  }
+
+  to {
+    opacity: 1;
+
+    transform:
+      translateY(0);
+  }
+}
+
+.fade-up {
+  animation:
+    fadeUp 1s ease forwards;
+}
+
+/* =========================
+   HEART PULSE
+========================= */
+
+@keyframes pulseHeart {
+  0% {
+    transform:
+      scale(1);
+  }
+
+  50% {
+    transform:
+      scale(1.1);
+  }
+
+  100% {
+    transform:
+      scale(1);
+  }
+}
+
+.heart-pulse {
+  animation:
+    pulseHeart 2s infinite;
+}
+
+/* =========================
+   3D ENVELOPE STYLES
+   ========================= */
+
+.perspective-wrapper {
+  perspective: 1500px;
+}
+
+.envelope-container {
+  position: relative;
+  width: 420px;
+  height: 280px;
+  transform-style: preserve-3d;
+  transition: transform 0.8s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.envelope-face {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.envelope-back {
+  background-color: #ebdcb9; /* Warm cream */
+  border-radius: 8px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+}
+
+.envelope-paper-sheet {
+  position: absolute;
+  bottom: 12px;
+  left: 20px;
+  right: 20px;
+  height: 250px;
+  background-color: #fcfaf2; /* Lighter vintage cream */
+  border-radius: 4px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  z-index: 2;
+  transform-origin: bottom center;
+}
+
+.envelope-flap-left {
+  background-color: #e2d3b0;
+  clip-path: polygon(0 0, 52% 50%, 0 100%);
+  border-radius: 8px 0 0 8px;
+  z-index: 3;
+}
+
+.envelope-flap-right {
+  background-color: #e2d3b0;
+  clip-path: polygon(100% 0, 48% 50%, 100% 100%);
+  border-radius: 0 8px 8px 0;
+  z-index: 3;
+}
+
+.envelope-flap-bottom {
+  background-color: #d9ca9d;
+  clip-path: polygon(0 100%, 100% 100%, 50% 48%);
+  border-radius: 0 0 8px 8px;
+  box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.05);
+  z-index: 4;
+}
+
+.envelope-flap-top {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 145px;
+  background-color: #ebdcb9;
+  clip-path: polygon(0 0, 100% 0, 50% 100%);
+  border-radius: 8px 8px 0 0;
+  transform-origin: top center;
+  z-index: 5;
+  transition: transform 1.2s cubic-bezier(0.25, 1, 0.5, 1), z-index 0.3s;
+}
+
+/* Open states */
+.envelope-flap-top.open {
+  transform: rotateX(-180deg);
+  z-index: 1; /* Place it behind the paper when opened */
+}
+
+/* Wax Seal styling */
+.wax-seal {
+  position: absolute;
+  top: 130px;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 50px;
+  height: 50px;
+  z-index: 10;
+  cursor: pointer;
+  filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.3));
+}
+
+.seal-half {
+  position: absolute;
+  top: 0;
+  width: 50%;
+  height: 100%;
+  overflow: hidden;
+  transition: transform 0.8s cubic-bezier(0.25, 1, 0.5, 1), opacity 0.8s;
+}
+
+.seal-left {
+  left: 0;
+  transform-origin: left center;
+}
+
+.seal-right {
+  right: 0;
+  transform-origin: right center;
+}
+
+.seal-left-opened {
+  transform: translateX(-25px) rotate(-35deg);
+  opacity: 0;
+}
+
+.seal-right-opened {
+  transform: translateX(25px) rotate(35deg);
+  opacity: 0;
+}
+
+/* Handwriting drawing animations */
+.signature-path {
+  stroke-dasharray: 1000;
+  stroke-dashoffset: 1000;
+  animation: writeSignature 6s ease-in-out forwards;
+}
+
+@keyframes writeSignature {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+.ink-reveal-text {
+  background: linear-gradient(to right, #111827 0%, #111827 100%);
+  background-size: 200% 100%;
+  background-position: 100% 0;
+  -webkit-background-clip: text;
+  background-clip: text;
+  transition: background-position 5s linear;
+}
+
+.ink-reveal-active {
+  background-position: 0 0;
+}
+
+/* Crease fold lines on paper */
+.paper-crease-horizontal {
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: rgba(0, 0, 0, 0.05);
+  box-shadow: 0 1px 1px rgba(255, 255, 255, 0.4);
+}
+
+.paper-crease-vertical {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 1px;
+  background: rgba(0, 0, 0, 0.05);
+  box-shadow: 1px 0 1px rgba(255, 255, 255, 0.4);
+}
+
+/* =========================
+   LETTER SCROLL AREA
+   — elegant hidden scrollbar
+========================= */
+
+.letter-scroll-area {
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* Hide scrollbar on Firefox */
+.letter-scroll-area {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(180, 140, 90, 0.25) transparent;
+}
+
+/* Hide scrollbar on WebKit/Chrome/Safari */
+.letter-scroll-area::-webkit-scrollbar {
+  width: 4px;
+}
+
+.letter-scroll-area::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.letter-scroll-area::-webkit-scrollbar-thumb {
+  background: rgba(180, 140, 90, 0.25);
+  border-radius: 999px;
+}
+
+.letter-scroll-area::-webkit-scrollbar-thumb:hover {
+  background: rgba(180, 140, 90, 0.45);
+}
+
